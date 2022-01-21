@@ -1,0 +1,158 @@
+{
+    "name": "InputController",
+    "maps": [
+        {
+            "name": "Movimiento",
+            "id": "4f787679-5efb-48c7-b91b-83e41c31d667",
+            "actions": [
+                {
+                    "name": "Saltar",
+                    "type": "Button",
+                    "id": "90a76657-f7d5-4dcf-a751-ff264778c997",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Agacharse",
+                    "type": "Button",
+                    "id": "448c0417-372a-456c-a630-b21d18a8b335",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Moverse",
+                    "type": "Value",
+                    "id": "a9c170f4-9027-40a2-bf7e-7c345169036c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "StrafeL",
+                    "type": "Value",
+                    "id": "ab60a05c-8015-419a-90b3-b7e9581cf66c",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "StrafeR",
+                    "type": "Value",
+                    "id": "3ed604d4-721b-4523-9d34-c0e3d10adf37",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "aa758910-102d-4810-a830-d6feef96baee",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Saltar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3770e021-14fd-467c-903c-b4256aefca3d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Saltar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32976b30-7dd2-4a07-a57a-1c7fdec532ea",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Agacharse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31367a2e-41bb-4f9a-b3fc-4a982991eaf8",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Agacharse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a685286-2b54-4062-8c04-37d43b0d979b",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Moverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3cb704b-d885-48ae-bc78-8e2cedce9a02",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StrafeL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a063868-44d1-459b-9cb7-021efee4c6da",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StrafeR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camara",
+            "id": "ccf604ba-3679-4948-88ed-e182e394227b",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "312ca885-381a-4091-8da8-28cf906babb4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6fc0ee1e-1926-4572-941f-cd38e5df5a4d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
