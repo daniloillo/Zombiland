@@ -8,20 +8,13 @@ public class PlayerMove : MonoBehaviour
     InputController inputController;
     Animator animator;
     CharacterController cc;
-    [SerializeField] GameObject camera;
-    
 
     //VARIABLES INPUT CONTROLLER
     bool agachado;
     Vector2 stickL;
     float triggerL;
     float triggerR;
-    //VARIABLES CHARACTER CONTROLLER
-    bool grounded;
-    [SerializeField] float playerSpeed;
-    bool strafelled;
-    bool caminando;
-    bool corriendo;
+
     
     
     private void Awake()
@@ -36,11 +29,11 @@ public class PlayerMove : MonoBehaviour
         inputController.Movimiento.Moverse.canceled += ctx => stickL = Vector2.zero;
         //Strafe
             //Left
-        inputController.Movimiento.StrafeL.performed += ctx => triggerL = ctx.ReadValue<float>();
-        inputController.Movimiento.StrafeL.canceled += ctx => triggerL = 0f;
+        inputController.Movimiento.Moverse.performed += ctx => triggerL = ctx.ReadValue<float>();
+        inputController.Movimiento.Moverse.canceled += ctx => triggerL = 0f;
             //Right
-        inputController.Movimiento.StrafeR.performed += ctx => triggerR = ctx.ReadValue<float>();
-        inputController.Movimiento.StrafeR.canceled += ctx => triggerR = 0f;
+        inputController.Movimiento.Moverse.performed += ctx => triggerR = ctx.ReadValue<float>();
+        inputController.Movimiento.Moverse.canceled += ctx => triggerR = 0f;
     }
     
     
@@ -50,94 +43,24 @@ public class PlayerMove : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         cc = gameObject.GetComponent<CharacterController>();
-        
-
 
     }
 
     // Update is called once per frame
     void Update()
-    {
-        Movimiento();
-        
+    {   //Agacharse
+        animator.SetBool("Agacharse", agachado);
+        animator.SetFloat("Movimiento", stickL.y);
+        //Strafe
+        float strafe = triggerR - triggerL;
+        print(triggerR);
+        print(triggerL);
+
+        animator.SetFloat("Strafe", strafe);
 
     }
     void Movimiento()
-    {   
-        playerSpeed = 0.5f;
-        //Agacharse
-        animator.SetBool("Agacharse", agachado);
-        //Caminar
-        animator.SetFloat("Movimiento", stickL.y);
-        //Vector Camara-Jugador
-        Vector3 direccion = camera.transform.position - transform.position;
-
-
-            //Movimiento
-            if(!strafelled)
-            {
-                
-            }
-            else
-            {
-                caminando = false;
-
-            }
-
-
-        //LookAt
-
-        
-        
-        //Strafe
-        float strafe = triggerR - triggerL;        
-        animator.SetFloat("Strafe", strafe);
-
-            //Movimiento
-            if (!caminando)
-            {
-                
-            }
-            else
-            {
-                strafelled = false;
-            }
-        if (corriendo)
-        {
-
-        }
-        else if (strafelled)
-        {   //Movimiento
-            Vector3 strafeV = new Vector3(strafe, 0, 0);
-            cc.Move(strafeV * Time.deltaTime * playerSpeed);
-            
-            //Animacion
-            if (strafe < 0f || strafe > 0f)
-            {
-                animator.SetBool("StrafeBool", true);
-
-            }
-            else
-            {
-                animator.SetBool("StrafeBool", false);
-
-            }
-        }
-        else //(Caminar)
-        {   
-            //Movimiento
-            
-            cc.Move(new Vector3 (direccion.x,0,direccion.z) * (-stickL.y) * Time.deltaTime * playerSpeed);
-            
-        }
-            
-
-            
-               
-            
-        
-        
-
+    {
 
     }
     void Saltar()
