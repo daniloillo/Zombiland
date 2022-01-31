@@ -131,11 +131,11 @@
             "id": "ccf604ba-3679-4948-88ed-e182e394227b",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
+                    "name": "Pivotar",
+                    "type": "Value",
                     "id": "312ca885-381a-4091-8da8-28cf906babb4",
-                    "expectedControlType": "Button",
-                    "processors": "",
+                    "expectedControlType": "Vector2",
+                    "processors": "InvertVector2(invertX=false)",
                     "interactions": ""
                 }
             ],
@@ -143,11 +143,11 @@
                 {
                     "name": "",
                     "id": "6fc0ee1e-1926-4572-941f-cd38e5df5a4d",
-                    "path": "",
+                    "path": "<XInputController>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Pivotar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

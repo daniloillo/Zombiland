@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/InputController.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/InputController/InputController.inputactions'
 
 using System;
 using System.Collections;
@@ -144,11 +144,11 @@ public class @InputController : IInputActionCollection, IDisposable
             ""id"": ""ccf604ba-3679-4948-88ed-e182e394227b"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
+                    ""name"": ""Pivotar"",
+                    ""type"": ""Value"",
                     ""id"": ""312ca885-381a-4091-8da8-28cf906babb4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""InvertVector2(invertX=false)"",
                     ""interactions"": """"
                 }
             ],
@@ -156,11 +156,11 @@ public class @InputController : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6fc0ee1e-1926-4572-941f-cd38e5df5a4d"",
-                    ""path"": """",
+                    ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Pivotar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -178,7 +178,7 @@ public class @InputController : IInputActionCollection, IDisposable
         m_Movimiento_StrafeR = m_Movimiento.FindAction("StrafeR", throwIfNotFound: true);
         // Camara
         m_Camara = asset.FindActionMap("Camara", throwIfNotFound: true);
-        m_Camara_Newaction = m_Camara.FindAction("New action", throwIfNotFound: true);
+        m_Camara_Pivotar = m_Camara.FindAction("Pivotar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,12 +293,12 @@ public class @InputController : IInputActionCollection, IDisposable
     // Camara
     private readonly InputActionMap m_Camara;
     private ICamaraActions m_CamaraActionsCallbackInterface;
-    private readonly InputAction m_Camara_Newaction;
+    private readonly InputAction m_Camara_Pivotar;
     public struct CamaraActions
     {
         private @InputController m_Wrapper;
         public CamaraActions(@InputController wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Camara_Newaction;
+        public InputAction @Pivotar => m_Wrapper.m_Camara_Pivotar;
         public InputActionMap Get() { return m_Wrapper.m_Camara; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,16 +308,16 @@ public class @InputController : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_CamaraActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_CamaraActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_CamaraActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_CamaraActionsCallbackInterface.OnNewaction;
+                @Pivotar.started -= m_Wrapper.m_CamaraActionsCallbackInterface.OnPivotar;
+                @Pivotar.performed -= m_Wrapper.m_CamaraActionsCallbackInterface.OnPivotar;
+                @Pivotar.canceled -= m_Wrapper.m_CamaraActionsCallbackInterface.OnPivotar;
             }
             m_Wrapper.m_CamaraActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @Pivotar.started += instance.OnPivotar;
+                @Pivotar.performed += instance.OnPivotar;
+                @Pivotar.canceled += instance.OnPivotar;
             }
         }
     }
@@ -332,6 +332,6 @@ public class @InputController : IInputActionCollection, IDisposable
     }
     public interface ICamaraActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnPivotar(InputAction.CallbackContext context);
     }
 }
